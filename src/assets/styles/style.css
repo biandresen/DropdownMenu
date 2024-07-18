@@ -59,3 +59,11 @@ input {
   background: hsl(0, 0%, 20%);
   cursor: default;
 }
+#btn2 {
+  position: absolute;
+  left: 70%;
+  top: 70%;
+}
+#menu2{
+  
+}

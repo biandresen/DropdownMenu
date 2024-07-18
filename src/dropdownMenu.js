@@ -4,14 +4,25 @@
 //OPTION 2 transition: opacity:"100%" on className: .dropdown-menu.hide and opacity:"0%" on .dropdown-menu + transition time
 //----------------------------------------------------------------------------------------
 
-let initializePosition = false; //So the menu position is only set once
-const dropdownMenu = document.querySelector(".dropdown-menu");
-const dropdownButton = document.querySelector(".dropdown-button");
-dropdownButton.addEventListener("click", dropdown);
+//Import the function to other modules, declare a button and menu, then call the function with the 3 parameters.
+//HOW TO USE - EXAMPLE:
+// const dropdownButton = document.querySelector(".dropdown-button");
+// const dropdownMenu = document.querySelector(".dropdown-menu");
+// dropdownButton.addEventListener("click", () => {
+//   dropdown(position(1,2 or 3), dropdownButton, dropdownMenu);
+// });
 
-function setDropdownMenuPosition() {
+function dropdown(position, dropdownButton, dropdownMenu) {
+  //Set position
+  setDropdownMenuPosition(position, dropdownButton, dropdownMenu);
+
+  //Show/Hide dropdown menu
+  dropdownMenu.classList.toggle("hide");
+}
+
+function setDropdownMenuPosition(position, dropdownButton, dropdownMenu) {
   //Choose position of dropdown menu relative to button (1:left | 2: middle 3: right)
-  const position = 1;
+  const positionSelector = position;
   //Getting the positions of button to calculate where the menu should be positioned
   const buttonLeftPosition = dropdownButton.getBoundingClientRect().left;
   const buttonTopPosition = dropdownButton.getBoundingClientRect().top;
@@ -24,7 +35,7 @@ function setDropdownMenuPosition() {
   dropdownMenu.classList.toggle("hide");
 
   //Applying position to menu
-  if (position === 1) {
+  if (positionSelector === 1) {
     dropdownMenu.style.left = buttonLeftPosition - menuWidth + buttonWidth + "px";
     dropdownMenu.style.top = buttonTopPosition + buttonHeight + "px";
   } else if (position === 2) {
@@ -34,14 +45,6 @@ function setDropdownMenuPosition() {
     dropdownMenu.style.left = buttonLeftPosition + "px";
     dropdownMenu.style.top = buttonTopPosition + buttonHeight + "px";
   }
-}
-
-function dropdown() {
-  if (initializePosition === false) setDropdownMenuPosition();
-  initializePosition = true;
-
-  //Show/Hide dropdown menu
-  dropdownMenu.classList.toggle("hide");
 }
 
 export default dropdown;
