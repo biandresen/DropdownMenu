@@ -32,6 +32,7 @@ function setDropdownMenuPosition(position, dropdownButton, dropdownMenu) {
   const buttonHeight = dropdownButton.offsetHeight;
   dropdownMenu.classList.toggle("hide");
   const menuWidth = dropdownMenu.offsetWidth;
+  const menuHeight = dropdownMenu.offsetHeight;
   dropdownMenu.classList.toggle("hide");
 
   //Applying position to menu
@@ -41,9 +42,18 @@ function setDropdownMenuPosition(position, dropdownButton, dropdownMenu) {
   } else if (position === 2) {
     dropdownMenu.style.left = buttonLeftPosition - menuWidth / 2 + buttonWidth / 2 + "px";
     dropdownMenu.style.top = buttonTopPosition + buttonHeight + "px";
-  } else {
+  } else if (position === 3) {
     dropdownMenu.style.left = buttonLeftPosition + "px";
     dropdownMenu.style.top = buttonTopPosition + buttonHeight + "px";
+  } else if (position === 4) {
+    dropdownMenu.style.left = buttonLeftPosition - menuWidth + buttonWidth + "px";
+    dropdownMenu.style.top = buttonTopPosition - menuHeight + "px";
+  } else if (position === 5) {
+    dropdownMenu.style.left = buttonLeftPosition - menuWidth / 2 + buttonWidth / 2 + "px";
+    dropdownMenu.style.top = buttonTopPosition - menuHeight + "px";
+  } else if (position === 6) {
+    dropdownMenu.style.left = buttonLeftPosition + "px";
+    dropdownMenu.style.top = buttonTopPosition - menuHeight + "px";
   }
 }
 

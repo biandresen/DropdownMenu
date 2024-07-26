@@ -10,5 +10,5 @@ dropdownButton.addEventListener("click", () => {
 const dropdownButton2 = document.querySelector("#btn2");
 const dropdownMenu2 = document.querySelector("#menu2");
 dropdownButton2.addEventListener("click", () => {
-  dropdown(3, dropdownButton2, dropdownMenu2);
+  dropdown(6, dropdownButton2, dropdownMenu2);
 });
